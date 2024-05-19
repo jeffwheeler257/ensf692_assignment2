@@ -20,7 +20,8 @@ class Sensor:
         self.pedestrian = "no"
         self.vehicle = "no"
 
-    # This function takes a string input and updates the Sensor instance variables based on further input
+    # This function takes a string input and tests that it is a valid input "0, 1, 2, or 3"
+    # If the inital input is valid, it updates the corresponding instance variable and output the print_message function
     def update_status(self):
         n = ""
         while n != "0":
@@ -60,7 +61,7 @@ class Sensor:
 
 
 
-# This function takes a Sensor object and prints 
+# This function takes a Sensor object and prints a course of action variable based on the current Sensor instance variable
 def print_message(Sensor):
     if Sensor.light == "red" or Sensor.pedestrian == "yes" or Sensor.vehicle == "yes":
         print("\nSTOP\n")
