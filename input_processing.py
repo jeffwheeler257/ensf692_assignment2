@@ -2,13 +2,6 @@
 # JEFF WHEELER, ENSF 692 P24
 # A terminal-based program for processing computer vision changes detected by a car.
 # Detailed specifications are provided via the Assignment 2 README file.
-# You must include the code provided below but you may delete the instructional comments.
-# You may add your own additional classes, functions, variables, etc. as long as they do not contradict the requirements (i.e. no global variables, etc.). 
-# You may import any modules from the standard Python library.
-# Remember to include your name and comments.
-
-
-
 # No global variables are permitted
 
 
@@ -73,7 +66,6 @@ def print_message(Sensor):
 
 
 
-# Complete the main function below
 def main():
     print("\n***ENSF 692 Car Vision Detector Processing Program***\n")
     
