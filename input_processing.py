@@ -21,29 +21,40 @@ class Sensor:
         self.vehicle = "no"
 
     # This function takes a string input and updates the Sensor instance variables based on further input
-    def update_status(self, n):
-        if n == "1":
-            x = input("What change has been identified?: ")
-            if x == "red" or x == "green" or x == "yellow":
-                self.light = x
-            else: 
-                print("Invalid vision change.\n")
-        elif n == "2":
-            y = input("What change has been identified?: ")
-            if y == "yes" or y == "no":
-                self.pedestrian = y
-            else:
-                print("Invalid vision change.\n")          
-        elif n == "3":
-            z = input("What change has been identified?: ")
-            if z == "yes" or z == "no":
-                self.vehicle = z
-            else:
-                print("Invalid vision change")
-        elif n == "0":
-            print("Program Ended\n")
-        else:
-            print("Input must be 1, 2, 3 or 0")
+    def update_status(self):
+        n = ""
+        while n != "0":
+            print("Are changes detected in the vision input?")
+            L = ['0', '1', '2', '3']
+            n = input("Select 1 for light, 2 for pedestrian, 3 for vehicle, or 0 to end program: ")
+            try:
+                if n not in L:
+                    raise ValueError
+            except ValueError:
+                print("You must select either 1, 2, 3 or 0.\n")
+                continue
+            if n == "1":
+                x = input("What change has been identified?: ")
+                if x == "red" or x == "green" or x == "yellow":
+                    self.light = x
+                else: 
+                    print("Invalid vision change.\n")
+            elif n == "2":
+                y = input("What change has been identified?: ")
+                if y == "yes" or y == "no":
+                    self.pedestrian = y
+                else:
+                    print("Invalid vision change.\n")          
+            elif n == "3":
+                z = input("What change has been identified?: ")
+                if z == "yes" or z == "no":
+                    self.vehicle = z
+                else:
+                    print("Invalid vision change")
+            elif n == "0":
+                print("Program Ended\n")
+            if n != "0":
+                print_message(self)
 
 
 
@@ -66,20 +77,8 @@ def main():
     print("\n***ENSF 692 Car Vision Detector Processing Program***\n")
     
     sensor = Sensor()
-    n = ""
-    while n != "0":
-        print("Are changes detected in the vision input?")
-        L = ['0', '1', '2', '3']
-        n = input("Select 1 for light, 2 for pedestrian, 3 for vehicle, or 0 to end program: ")
-        try:
-            if n in L:
-                sensor.update_status(n)
-            else:
-                raise ValueError
-        except ValueError:
-            print("You must select either 1, 2, 3 or 0.\n")
-        if n != "0":
-            print_message(sensor)
+    
+    sensor.update_status()
 
 
 # Conventional Python code for running main within a larger program
